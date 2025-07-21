@@ -354,8 +354,12 @@ header #hero {
   flex-direction: row-reverse;
 }
 
-#leistungen .leistung-block > div {
-  flex: 1 1 45%;
+#leistungen .leistung-block > div:first-child {
+  flex: 0 1 45%;
+}
+
+#leistungen .leistung-block > div:last-child {
+  flex: 0 1 45%;
 }
 
 @media screen and (max-width: 768px) {
@@ -401,7 +405,7 @@ header #hero {
   position: absolute;
   bottom: 0;
   left: 50%;
-  width: 30%;
+  width: 50%;
   height: 1px;
   background-color: lightgray;
   transform: translateX(-50%);
