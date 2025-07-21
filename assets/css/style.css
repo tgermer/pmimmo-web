@@ -7,6 +7,16 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Oswald';
+  font-stretch: 75% 100%;
+  font-style: normal;
+  font-weight: 200 700;
+  src: url('../fonts/Oswald/Oswald-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+}
+
+
 :root {
   /* Base Colors */
   --c-primary: #007a3d;
@@ -67,6 +77,27 @@ body {
     word-wrap: break-word;
 }
 
+h1, h2, h3 {
+    font-family: "Oswald";
+}
+
+h1 {
+  font-weight: 600;
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-top: 2.5vh !important;
+  margin-bottom: 1.5vh !important;
+}
+
+h3 {
+    font-weight: 300;
+    font-size: 1.8rem;
+    margin-bottom: .6rem;
+}
+
 .fas {
   color: var(--c-text);
   margin-right: 0.5rem;
@@ -121,22 +152,6 @@ img {
     object-fit: contain;
     width: auto;
     height: auto;
-}
-
-
-h1 {
-  font-weight: 700;
-}
-
-h2 {
-  font-weight: 325; /* funktioniert mit variable fonts */
-  margin-top: 2.5vh !important;
-  margin-bottom: 1.5vh !important;
-}
-
-h3 {
-    font-weight: 325; /* funktioniert mit variable fonts */
-    margin-bottom: .6rem;
 }
 
 .condensed {
