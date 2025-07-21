@@ -289,6 +289,22 @@ header.hero {
   color: white;
   text-align: center;
   position: relative;
+  padding-top: calc(env(safe-area-inset-top) + 5rem); /* Abstand für Notch & Navigation */
+  padding-bottom: 3rem;
+  align-items: center; /* statt center */
+}
+
+@media screen and (max-width: 480px) {
+  header.hero {
+    min-height: 100vh; /* oder z. B. 90vh */
+  }
+}
+
+@media (orientation: landscape) {
+  header.hero {
+    padding-top: calc(env(safe-area-inset-top) + 6rem);
+    min-height: 600px;
+  }
 }
 
 #hero {
