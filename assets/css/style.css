@@ -87,6 +87,10 @@ body {
 
 h1, h2, h3 {
     font-family: "Oswald";
+    padding: env(safe-area-inset-top)  
+    env(safe-area-inset-right)  
+    0  
+    env(safe-area-inset-left);
 }
 
 h1 {
@@ -142,6 +146,11 @@ a:hover {
 
 p {
     margin-bottom: .5em;
+    padding:  
+    env(safe-area-inset-top)  
+    env(safe-area-inset-right)  
+    0  
+    env(safe-area-inset-left);
 }
 
 .lead {
@@ -578,13 +587,13 @@ footer .spalten {
     gap: 2rem;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
     footer .spalten {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 750px) {
     footer .container, footer .spalten {
         grid-template-columns: repeat(1, 1fr);
         text-align: center;
@@ -601,6 +610,11 @@ footer img {
   filter: brightness(0) invert(1);
   height: 60px;
   margin-bottom: 1.5rem;
+  padding:  
+    env(safe-area-inset-top)  
+    env(safe-area-inset-right)  
+    0  
+    env(safe-area-inset-left);
 }
 
 footer address {
