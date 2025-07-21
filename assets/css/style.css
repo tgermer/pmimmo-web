@@ -340,31 +340,75 @@ header #hero {
 }
 
 
-#leistungen .leistungen {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+#leistungen .leistung-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#leistungen .leistung-block:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+#leistungen .leistung-block > div {
+  flex: 1 1 45%;
 }
 
 @media screen and (max-width: 768px) {
-    #leistungen .leistungen {
-        grid-template-columns: repeat(1, 1fr);
-    }
+  #leistungen .leistung-block {
+    flex-direction: column !important;
+  }
+
+  #leistungen .leistung-block > div {
+    flex: 1 1 100%;
+  }
 }
 
 #leistungen .logos {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: flex-start;
     align-items: center;
     gap: 2rem;
-    margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  #leistungen .logos {
+    flex-direction: row !important;
+    justify-content: center;
+  }
 }
 
 #leistungen .logos img {
     max-height: 60px;
+}
+
+#leistungen .leistung-block {
+  border-bottom: none;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  position: relative;
+}
+
+#leistungen .leistung-block::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 30%;
+  height: 1px;
+  background-color: lightgray;
+  transform: translateX(-50%);
+}
+
+#leistungen .leistung-block:last-child::after {
+  content: none;
 }
 
 #immobilienangebote {
