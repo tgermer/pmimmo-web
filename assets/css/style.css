@@ -19,8 +19,10 @@
 
 :root {
   /* Base Colors */
-  --c-primary: #007a3d;
-  --c-primary-light: #339c5d;
+  --c-primary: #689625;
+  /* --c-primary: #339c5d; */
+  --c-primary-light: hsl(84, 60%, 70%); /* Original Rudi */
+
   --c-primary-dark: #005f2e;
 
   --c-secondary: hsl(0, 0%, 100%);
@@ -85,7 +87,7 @@ body {
     -ms-hyphens: manual;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .size-h3 {
     font-family: "Oswald";
     padding: env(safe-area-inset-top)  
     env(safe-area-inset-right)  
@@ -101,13 +103,18 @@ h2 {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 2.5vh !important;
-  margin-bottom: 1.5vh !important;
+  margin-bottom: 6vh !important;
 }
 
 h3 {
     font-weight: 300;
-    font-size: 1.8rem;
-    margin-bottom: .6rem;
+    font-size: 2rem;
+    margin-bottom: 2.5vh;
+}
+
+.size-h4 {
+    font-size: 1.4rem;
+    /* font-weight: 400; */
 }
 
 .fas {
@@ -124,7 +131,7 @@ a {
 }
 
 a:hover {
-    background-color: var(--c-primary-light);
+    background-color: var(--c-primary);
     color: white;
     text-decoration: none;
 }
@@ -159,6 +166,12 @@ p {
     font-weight: 200;
 }
 
+.text-highlight {
+    background-image: linear-gradient(180deg, rgba(238, 217, 108, 0), rgba(238, 217, 108, 0) 60%, var(--c-primary-light) 0, var(--c-primary-light) 80%);
+    font-family: inherit;
+    font-weight: inherit;
+}
+
 .text-center {
     text-align: center;
 }
@@ -176,7 +189,7 @@ img {
 }
 
 .font-primary {
-    color: var(--c-primary-light);
+    color: var(--c-primary);
 }
 
 .font-white {
@@ -188,7 +201,7 @@ img {
 }
 
 .fill-primary {
-    background-color: var(--c-primary-light);
+    background-color: var(--c-primary);
 }
 
  #top-kontakt {
@@ -237,7 +250,7 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom: 3px solid var(--c-primary-light);
+    border-bottom: 3px solid var(--c-primary);
     
 }
 
@@ -335,7 +348,7 @@ header.hero .hero-sub {
 }
 
 .button.cta {
-  background-color: var(--c-primary-light);
+  background-color: var(--c-primary);
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -364,7 +377,7 @@ header.hero .hero-sub {
 }
 
 #neuer .zertifikate {
-    margin: 1.5rem auto;
+    margin: 2.5rem auto 3.5rem auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -559,7 +572,7 @@ header.hero .hero-sub {
 .button {
     padding: 1rem 2rem;
     margin-top: 1.5rem;
-    background-color: var(--c-primary-light);
+    background-color: var(--c-primary);
     transition: all 0.3s ease;
 }
 
@@ -583,7 +596,7 @@ header.hero .hero-sub {
 
 
 footer {
-    background-color: var(--c-primary-light);
+    background-color: var(--c-primary);
     padding: 4rem 0;
     color: white;
 }
