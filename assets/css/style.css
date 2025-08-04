@@ -690,3 +690,46 @@ html[data-theme="dark"] #toggle-dark i.fa-sun {
 }
 
 
+/* Gradients */
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at top left,
+    rgba(104, 150, 37, 0.4) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+}
+
+.bg-verlauf-eins {
+  /* von unten links nach oben rechts */
+  background: linear-gradient(
+    135deg,
+    var(--c-primary-light) -50%,
+    var(--c-background) 100%
+  );
+}
+
+.bg-verlauf-accent {
+  /* von links nach rechts */
+  background: linear-gradient(
+    90deg,
+    var(--c-background-gray) 10%,
+    var(--c-primary-light) 30%,
+    var(--c-primary-light) 70%,
+    var(--c-background-gray) 90%
+    
+  );
+}
+
+.bg-verlauf-circle {
+  /* Ellipse für weiches Auslaufen */
+  background: radial-gradient(
+    circle at 50% -150%,
+    var(--c-primary-light) 0%,
+    var(--c-primary-light) 10%,
+    var(--c-background) 100%
+  );
+}
