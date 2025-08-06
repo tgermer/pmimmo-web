@@ -19,20 +19,39 @@
 
 :root {
   /* Base Colors */
-  --c-primary: #689625;
-  /* --c-primary: #339c5d; */
-  --c-primary-light: hsl(84, 59%, 70%); /* Original Rudi */
 
-  --c-primary-dark: #005f2e;
+  /* Original Farben */
+  /* --c-primary: #689625; */
+  --c-primary: hsl(84, 60%, 37%);
+
+  --c-primary-h: 84;
+  --c-primary-s: 60%;
+  --c-primary-l: 37%;
+
+  /* Frischeres Grün */
+  --c-primary: hsl(84, 59%, 70%);
+
+  --c-primary-h: 84;
+  --c-primary-s: 59%;
+  --c-primary-l: 70%;
+  /* hsl-Farbe zusammenbauen */
+  --c-primary: hsl(var(--c-primary-h), var(--c-primary-s), var(--c-primary-l));
+  /* 40 % dunkler */
+  --c-primary-dark: hsl(
+    var(--c-primary-h),
+    var(--c-primary-s),
+    calc(var(--c-primary-l) - 40%)
+  );
+
 
   --c-secondary: hsl(0, 0%, 100%);
   --c-background: hsla(0, 0%, 97%);
   --c-background-opacity: hsla(0, 0%, 97%, 0.85);
-  --c-background-primary-light-opacity: hsla(84, 60%, 70%, .3);
+  --c-background-primary-opacity: hsla(var(--c-primary-h), var(--c-primary-s), var(--c-primary-l), .3);
   --c-background-dark: hsl(0, 0%, 7%);
   --c-background-dark-opacity: hsla(0, 0%, 7%, 0.75);
   --c-background-gray: hsl(0, 0%, 92.5%);
-  --c-text: #333333;
+  --c-text: #333;
   --c-text-light: hsl(0, 0%, 97%);
 
   --c-red: #ff8787;
@@ -110,7 +129,7 @@ h3 {
 }
 
 #top-kontakt {
-  background-color: var(--c-primary-light);
+  background-color: var(--c-primary);
 }
 
 #top-kontakt .fas {
@@ -122,7 +141,7 @@ a {
 }
 
 a:hover {
-    background-color: var(--c-primary-light);
+    background-color: var(--c-primary);
     text-decoration: none;
 }
 
@@ -157,7 +176,7 @@ p {
 }
 
 .text-highlight {
-    background-image: linear-gradient(180deg, rgba(238, 217, 108, 0), rgba(238, 217, 108, 0) 60%, var(--c-primary-light) 0, var(--c-primary-light) 80%);
+    background-image: linear-gradient(180deg, rgba(238, 217, 108, 0), rgba(238, 217, 108, 0) 60%, var(--c-primary) 0, var(--c-primary) 80%);
     font-family: inherit;
     font-weight: inherit;
 }
@@ -180,6 +199,10 @@ img {
 
 .font-primary {
     color: var(--c-primary);
+}
+
+.font-primary-dark {
+    color: var(--c-primary-dark);
 }
 
 .font-white {
@@ -256,7 +279,7 @@ nav a {
 }
 
 nav a:hover {
-    border-bottom: 3px solid var(--c-primary-light);
+    border-bottom: 3px solid var(--c-primary);
     background-color: inherit;
     
 }
@@ -267,6 +290,10 @@ nav .logo img {
     padding: 0;
     margin: 0;
     display: block;
+}
+
+nav .logo a {
+  border: none;
 }
 
 header {
@@ -284,6 +311,30 @@ header {
   flex: 1;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
+}
+
+#hero .dia {
+  position: absolute;
+  top: -40px;
+  right: 5vw;
+  text-align: end;
+  background: white;
+  border-radius: 50%;
+  transform: rotate(20deg);
+  aspect-ratio: 1 / 1;
+  width: 20vw;
+  height: 20vw;
+  max-width: 180px;
+  max-height: 180px;
+  overflow: hidden;
+}
+
+#hero .dia img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 header #hero div {
@@ -334,28 +385,69 @@ header.hero .hero-sub {
   transform: scale(1.025);
 }
 
-#neuer .expertise {
+#neuer .dekra-d1 {
+  max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     gap: 5vw;
     align-items: center;
-    background-color: var(--c-background-primary-light-opacity);
+    background-color: #ededed;
     padding: 4rem;
-    border: .5px solid var(--c-primary-light);
+    margin: 0 auto 4rem auto;
     border-radius: 2rem;
-    color: var(--c-primary);
+    color: rgb(0, 129, 67);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.4);
 }
 
-#neuer .expertise p {
+#neuer .dekra-d1 p, p.ivd {
   font-weight: 400;
   text-align: center;
 }
 
-#neuer .expertise img {
+#neuer .dekra-d1 p.heading, .ivd p.heading {
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+#neuer .dekra-d1 img {
     max-height: 200px;
     object-fit: contain;
     width: auto;
     height: auto;
+}
+
+.ivd {
+  display: grid;
+  grid-template-columns: 6fr 2fr;
+  gap: 5vw;
+  align-items: center;
+  background-color: #f2f8fc;
+  padding: 4rem;
+    margin: 0 auto 4rem auto;
+    border-radius: 2rem;
+    color: rgb(27, 44, 102);
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.4);
+}
+
+.ivd div:last-child {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-content: center;
+  justify-content: center;
+  justify-items: stretch;
+  align-items: center;
+  gap: .5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .ivd {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+}
+
+.ivd img {
+  max-height: 200px;
 }
 
 .picture {
@@ -403,10 +495,10 @@ header.hero .hero-sub {
     }
 }
 
-#team img {
+#team .portrait {
     width: 100%;
     display: block;
-    border-bottom: 1rem solid var(--c-primary-light);
+    border-bottom: 1rem solid var(--c-primary);
 }
 
 #team .personen {
@@ -420,6 +512,7 @@ header.hero .hero-sub {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: flex-start;
   gap: 2rem;
 }
 
@@ -437,8 +530,9 @@ header.hero .hero-sub {
     /* width: 100%; */
 }
 
-#team img {
+#team .portrait {
   max-width: 300px;
+  margin-top: 2rem;
   /* flex-grow: 1; */
 }
 
@@ -449,7 +543,7 @@ header.hero .hero-sub {
 #team .person-info .trennlinie {
     width: 3rem;
     height: 3px;
-    background-color: var(--c-primary-light);
+    background-color: var(--c-primary);
     margin: 0 auto 0.5rem 0;
     border-radius: 2px;
 }
@@ -464,13 +558,13 @@ header.hero .hero-sub {
 
   /* Ensure full-width for both text and image */
   #team .person-info,
-  #team .person img {
+  #team .person .portrait {
     width: 100%;
     max-width: none;
   }
 
   /* Optional: image on top of the text */
-  #team .person img {
+  #team .person .portrait {
     order: -1;
     margin-bottom: 0.5rem;
   }
@@ -491,14 +585,14 @@ header.hero .hero-sub {
 }
 
 #leistungen2 > div > div {
-  /* border: .5px solid var(--c-primary-light); */
+  /* border: .5px solid var(--c-primary); */
   /* height: 30rem; */
   width: 500px;
   /* background-color: var(--c-background-primary-light-opacity); */
   background: radial-gradient(
     circle at 50% -150%,
-    var(--c-primary-light) 0%,
-    var(--c-primary-light) 10%,
+    var(--c-primary) 0%,
+    var(--c-primary) 10%,
     var(--c-background) 100%
   );
   border-radius: 2rem;
@@ -506,7 +600,7 @@ header.hero .hero-sub {
   padding: 2rem;
 }
 
-#leistungen2 .logos {
+#leistungen2 .logos, #team .siegel {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -514,8 +608,11 @@ header.hero .hero-sub {
   margin-top: 2rem;
 }
 
-#leistungen2 img {
+/* Logos in Leistungen2 und Siegel-Bilder im Team */
+#leistungen2 .logos img,
+#team .siegel img {
   height: 4rem;
+  border-bottom: none;
 }
 
 
@@ -643,20 +740,17 @@ header.hero .hero-sub {
 }
 
 .button:hover {
-    background-color: var(--c-primary-dark);
     cursor: pointer;
     transform: scale(1.05);
+    text-decoration: underline;
 }
 
 .button a {
-    color: white;
     text-decoration: none;
     background-color: inherit;
 }
 
 .button a:hover {
-    color: white;
-    text-decoration: none;
     background-color: inherit;
 }
 
@@ -664,7 +758,6 @@ header.hero .hero-sub {
 footer {
     background-color: var(--c-primary);
     padding: 4rem 0;
-    color: white;
 }
 
 footer .spalten {
@@ -693,7 +786,7 @@ footer .container .nav {
 }
 
 footer img {
-  filter: brightness(0) invert(1);
+  filter: brightness(0.3) invert(0);
   height: 60px;
   margin-bottom: 1.5rem;
   padding:  
@@ -708,7 +801,7 @@ footer address {
 }
 
 footer a {
-    color: white;
+    /* color: white; */
     text-decoration: none;
     cursor: pointer;
 }
@@ -774,7 +867,7 @@ html[data-theme="dark"] #toggle-dark i.fa-sun {
   /* von unten links nach oben rechts */
   background: linear-gradient(
     135deg,
-    var(--c-primary-light) -50%,
+    var(--c-primary) -50%,
     var(--c-background) 100%
   );
 }
@@ -784,8 +877,8 @@ html[data-theme="dark"] #toggle-dark i.fa-sun {
   background: linear-gradient(
     90deg,
     var(--c-background-gray) 10%,
-    var(--c-primary-light) 30%,
-    var(--c-primary-light) 70%,
+    var(--c-primary) 30%,
+    var(--c-primary) 70%,
     var(--c-background-gray) 90%
     
   );
@@ -795,8 +888,8 @@ html[data-theme="dark"] #toggle-dark i.fa-sun {
   /* Ellipse für weiches Auslaufen */
   background: radial-gradient(
     circle at 50% -150%,
-    var(--c-primary-light) 0%,
-    var(--c-primary-light) 10%,
+    var(--c-primary) 0%,
+    var(--c-primary) 10%,
     var(--c-background) 100%
   );
 }
