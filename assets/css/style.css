@@ -93,7 +93,7 @@ body {
     -ms-hyphens: manual;
 }
 
-h1, h2, h3, .size-h3 {
+h1, h2, h3, h4, .size-h3 {
     font-family: "Oswald";
     padding: env(safe-area-inset-top)  
     env(safe-area-inset-right)  
@@ -109,7 +109,7 @@ h2 {
   font-weight: 500;
   font-size: 2rem;
   margin-top: 2.5vh !important;
-  margin-bottom: 6vh !important;
+  margin-bottom: 4vh !important;
 }
 
 h3 {
@@ -118,9 +118,30 @@ h3 {
     margin-bottom: 2.5vh;
 }
 
+h4 {
+    font-weight: 300;
+    font-size: 1.5rem;
+    margin-bottom: 2vh;
+    margin-top: 2.5rem;
+}
+
 .size-h4 {
     font-size: 1.4rem;
     /* font-weight: 400; */
+}
+
+ul {
+  list-style-position: inside;
+  margin-left: 2rem;
+}
+
+li::marker {
+  color: var(--c-primary)
+}
+
+li {
+  list-style: disc;
+  margin-bottom: .4rem;
 }
 
 .fas {
@@ -349,7 +370,7 @@ header.hero h1 {
   font-weight: 600;
   color: white;
   margin-top: 2.5rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
   text-shadow:
     0 0 4px rgba(0, 0, 0, 0.7),
     0 0 8px rgba(0, 0, 0, 0.5);
@@ -359,7 +380,9 @@ header.hero h1 {
 header.hero p.lead {
   font-size: clamp(1.2rem, 1vw + 0.8rem, 1.6rem);
   font-weight: 300;
-  color: #eaeaea;
+  color: white;
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
 header.hero .hero-sub {
@@ -384,11 +407,11 @@ header.hero .hero-sub {
   transform: scale(1.025);
 }
 
-#neuer .dekra-d1 {
+#dekra-d1 .dekra-d1 {
   max-width: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
-    gap: 5vw;
+    gap: 2rem;
     align-items: center;
     justify-items: center;
     background-color: #ededed;
@@ -400,29 +423,29 @@ header.hero .hero-sub {
 }
 
 @media screen and (max-width: 768px) {
-  #neuer .dekra-d1 {
+  #dekra-d1 .dekra-d1 {
     grid-template-columns: 1fr;
   }
 }
 
-#neuer .dekra-d1 p, p.ivd {
+#dekra-d1 .dekra-d1 p, p.ivd {
   font-weight: 400;
   text-align: center;
 }
 
-#neuer .dekra-d1 p.heading, .ivd p.heading {
+#dekra-d1 .dekra-d1 p.heading, .ivd p.heading {
   font-weight: 800;
   text-transform: uppercase;
 }
 
-#neuer .dekra-d1 img {
+#dekra-d1 .dekra-d1 img {
     max-height: 200px;
     object-fit: contain;
     width: auto;
     height: auto;
 }
 
-#ivd, #neuer .dekra-d1 {
+#ivd, #dekra-d1 .dekra-d1, #faq, #pmimmo {
   margin-top: 6rem;
   margin-bottom: 6rem;
 }
@@ -464,6 +487,7 @@ header.hero .hero-sub {
 .picture {
   border-radius: 50% !important;
   border: 1px solid #dee2e6;
+  width: 100%;
 }
 
 #neuer .zertifikate {
@@ -624,6 +648,12 @@ header.hero .hero-sub {
 #team .siegel img {
   height: 4rem;
   border-bottom: none;
+}
+
+#pmimmo {
+  background-color: var(--c-background-gray);
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
 #immobilienangebote {
