@@ -248,7 +248,6 @@ nav {
     flex-wrap: wrap;
     position: sticky;
     top: 0;
-    /* background-color: var(--c-background); */
     background: linear-gradient(
       to bottom,
       var(--c-background-opacity) 0%,
@@ -256,7 +255,7 @@ nav {
     );
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(10px);
-    margin-bottom: 4rem;
+    margin-bottom: 6rem;
 }
 
 nav div {
@@ -391,12 +390,19 @@ header.hero .hero-sub {
     grid-template-columns: 1fr 4fr 1fr;
     gap: 5vw;
     align-items: center;
+    justify-items: center;
     background-color: #ededed;
     padding: 4rem;
     margin: 0 auto 4rem auto;
     border-radius: 2rem;
     color: rgb(0, 129, 67);
     box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 768px) {
+  #neuer .dekra-d1 {
+    grid-template-columns: 1fr;
+  }
 }
 
 #neuer .dekra-d1 p, p.ivd {
@@ -414,6 +420,11 @@ header.hero .hero-sub {
     object-fit: contain;
     width: auto;
     height: auto;
+}
+
+#ivd, #neuer .dekra-d1 {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 .ivd {
@@ -570,11 +581,11 @@ header.hero .hero-sub {
   }
 }
 
-#leistungen2 {
+#leistungen {
   margin-bottom: 5rem;
 }
 
-#leistungen2 > div {
+#leistungen > div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -584,7 +595,7 @@ header.hero .hero-sub {
   gap: 1.5rem;
 }
 
-#leistungen2 > div > div {
+#leistungen > div > div {
   /* border: .5px solid var(--c-primary); */
   /* height: 30rem; */
   width: 500px;
@@ -600,7 +611,7 @@ header.hero .hero-sub {
   padding: 2rem;
 }
 
-#leistungen2 .logos, #team .siegel {
+#leistungen .logos, #team .siegel {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -609,92 +620,67 @@ header.hero .hero-sub {
 }
 
 /* Logos in Leistungen2 und Siegel-Bilder im Team */
-#leistungen2 .logos img,
+#leistungen .logos img,
 #team .siegel img {
   height: 4rem;
   border-bottom: none;
 }
 
-
-#leistungen .leistung-block {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-bottom: 4rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-#leistungen .leistung-block:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-#leistungen .leistung-block > div:first-child {
-  flex: 0 1 45%;
-}
-
-#leistungen .leistung-block > div:last-child {
-  flex: 0 1 45%;
-}
-
-@media screen and (max-width: 768px) {
-  #leistungen .leistung-block {
-    flex-direction: column !important;
-  }
-
-  #leistungen .leistung-block > div {
-    flex: 1 1 100%;
-  }
-}
-
-#leistungen .logos {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-}
-
-@media screen and (max-width: 768px) {
-  #leistungen .logos {
-    flex-direction: row !important;
-    justify-content: center;
-  }
-}
-
-#leistungen .logos img {
-    max-height: 60px;
-}
-
-#leistungen .leistung-block {
-  border-bottom: none;
-  margin-bottom: 4rem;
-  padding-bottom: 4rem;
-  position: relative;
-}
-
-#leistungen .leistung-block::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 50%;
-  height: 1px;
-  background-color: lightgray;
-  transform: translateX(-50%);
-}
-
-#leistungen .leistung-block:last-child::after {
-  content: none;
-}
-
 #immobilienangebote {
-    background-color: var(--c-background-gray);
+    background-color: var(--c-background-primary-opacity);
     padding-top: 4rem;
     padding-bottom: 4rem;
+}
+
+#nachhaltigkeit {
+  height: 50vw;
+  min-height: 700px;
+  margin-bottom: 4rem;
+  position: relative;
+  background-image: url("../img/nachhaltigkeitFiatE.jpeg");
+  background-size: cover;
+  background-position: center bottom;
+  text-shadow:
+    0 0 4px rgba(0, 0, 0, 0.7),
+    0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+#nachhaltigkeit .image {
+  height: 100%;
+  
+}
+
+#nachhaltigkeit .content {
+  width: 100%;
+  height: 100%;
+  display: block;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(121, 14, 14, 0.0) 65%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+#nachhaltigkeit .container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+#nachhaltigkeit h2 {
+  margin-bottom: 2rem !important;
+}
+
+#mitglied {
+  margin-top: 6rem;
+  margin-bottom: 6rem;
 }
 
 #mitglied div {
@@ -895,3 +881,77 @@ html[data-theme="dark"] #toggle-dark i.fa-sun {
 }
 
 
+
+
+/* Responsive hamburger navigation */
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-label {
+  display: none;
+  position: absolute;
+  top: 1.5rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  content: "";
+  display: block;
+  background: var(--c-text);
+  height: 0.2rem;
+  width: 100%;
+  border-radius: 0.1rem;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-toggle-label span::before {
+  transform: translateY(-0.6rem);
+}
+.nav-toggle-label span::after {
+  transform: translateY(0.6rem);
+}
+
+@media (max-width: 900px) {
+  nav .logo img {
+    height: 50px;
+    max-height: 50px;
+}
+
+  .nav-toggle-label {
+    display: block;
+  }
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    background: var(--c-background-opacity);
+    width: 200px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: 1rem 0;
+  }
+  .nav-menu a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--c-background-gray);
+  }
+  .nav-toggle:checked + .nav-toggle-label span {
+    background: transparent;
+  }
+  .nav-toggle:checked + .nav-toggle-label span::before {
+    transform: rotate(45deg) translate(-0.2rem, 0.35rem);
+  }
+  .nav-toggle:checked + .nav-toggle-label span::after {
+    transform: rotate(-45deg) translate(-0.2rem, -0.35rem);
+  }
+  .nav-toggle:checked ~ .container .nav-menu {
+    display: flex;
+  }
+}
