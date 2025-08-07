@@ -64,6 +64,7 @@
 
 html {
   transition: background-color 0.3s ease, color 0.3s ease;
+  background-color: var(--c-primary);
 }
 
 * {
@@ -95,10 +96,6 @@ body {
 
 h1, h2, h3, h4, .size-h3 {
     font-family: "Oswald";
-    padding: env(safe-area-inset-top)  
-    env(safe-area-inset-right)  
-    0  
-    env(safe-area-inset-left);
 }
 
 h1 {
@@ -171,6 +168,10 @@ a:hover {
     max-width: 1200px;
     margin: auto;
     padding: 0 1rem;
+    padding: env(safe-area-inset-top)  
+    env(safe-area-inset-right)  
+    0  
+    env(safe-area-inset-left);
 }
 
 .mb-m {
@@ -183,11 +184,6 @@ a:hover {
 
 p {
     margin-bottom: .5em;
-    padding:  
-    env(safe-area-inset-top)  
-    env(safe-area-inset-right)  
-    0  
-    env(safe-area-inset-left);
 }
 
 .lead {
@@ -305,8 +301,8 @@ nav a:hover {
 }
 
 nav .logo img {
-    height: 70px;
-    max-height: 70px;
+    height: 50px;
+    max-height: 50px;
     padding: 0;
     margin: 0;
     display: block;
