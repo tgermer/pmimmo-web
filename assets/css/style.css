@@ -377,10 +377,10 @@ header.hero h1 {
     0 0 4px rgba(0, 0, 0, 0.7),
     0 0 8px rgba(0, 0, 0, 0.5);
     text-align: center;
-  padding: env(safe-area-inset-top)  
-    env(safe-area-inset-right)  
-    0  
-    env(safe-area-inset-left);
+  padding-inline-start: max(1rem, env(safe-area-inset-left));
+  padding-inline-end:   max(1rem, env(safe-area-inset-right));
+  padding-block-start:  env(safe-area-inset-top);
+  padding-block-end:    0;
 }
 
 header.hero p.lead {
@@ -389,10 +389,11 @@ header.hero p.lead {
   color: white;
   text-align: center;
   margin-bottom: 4rem;
-  padding: env(safe-area-inset-top)  
-    env(safe-area-inset-right)  
-    0  
-    env(safe-area-inset-left);
+  padding-inline-start: max(1rem, env(safe-area-inset-left));
+  padding-inline-end:   max(1rem, env(safe-area-inset-right));
+  padding-block-start:  env(safe-area-inset-top);
+  padding-block-end:    0;
+    
 }
 
 header.hero .hero-sub {
