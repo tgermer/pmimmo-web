@@ -502,6 +502,10 @@ header.hero .hero-sub { margin-top: .5rem; margin-bottom: 1.5rem; font-size: 1re
   align-content: stretch;
 }
 
+.faq h4 {
+  margin-top: 0;
+}
+
 /* --------------------------------------------------
    Weitere Sektionen
 -------------------------------------------------- */
