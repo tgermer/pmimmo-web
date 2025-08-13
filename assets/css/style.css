@@ -521,6 +521,75 @@ header.hero .hero-sub { margin-top: .5rem; margin-bottom: 1.5rem; font-size: 1re
 .button a:hover { background-color: inherit; }
 
 /* --------------------------------------------------
+   Highlight / Trust boxes
+-------------------------------------------------- */
+.highlight-box { margin-top: 6rem; margin-bottom: 6rem; }
+.highlight-box .container { padding-top: 0; }
+.highlight-content {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  background-color: #ededed;
+  padding: 4rem;
+  margin: 0 auto;
+  border-radius: 2rem;
+  box-shadow: 0 0 16px rgba(0,0,0,0.4);
+}
+.highlight-media img { max-height: 200px; object-fit: contain; }
+.highlight-badge img { max-height: 200px; object-fit: contain; }
+.highlight-text { text-align: center; }
+.highlight-text .heading { font-weight: 800; text-transform: uppercase; }
+
+/* IVD logos grid */
+#ivd .highlight-content {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  justify-items: center;
+  background-color: #ededed;
+  padding: 4rem;
+  margin: 0 auto;
+  border-radius: 2rem;
+  box-shadow: 0 0 16px rgba(0,0,0,0.4);
+}
+.ivd-logos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .5rem;
+  align-items: center;
+  justify-items: center;
+}
+
+.ivd-logos img { max-height: 200px; object-fit: contain; width: auto; height: auto; }
+
+/* Section-specific color theming for trust boxes */
+#dekra-d1 .highlight-text { color: rgb(0, 107, 82); }
+#dekra-d1 .highlight-text .heading { color: rgb(0, 107, 82); }
+#dekra-d1 .highlight-content {
+  background-color: #e6f5ee;            /* soft DEKRA green background */
+  border: 1px solid rgba(0,107,82,.15);
+}
+
+#ivd .highlight-text { color: rgb(27, 44, 102); }
+#ivd .highlight-text .heading { color: rgb(27, 44, 102); }
+#ivd .highlight-content {
+  background-color: #f2f8fc;            /* soft IVD blue background */
+  border: 1px solid rgba(27,44,102,.12);
+}
+
+/* ensure lead text inherits the themed color */
+.highlight-text p.lead { color: inherit; }
+
+/* Compact on mobile */
+@media screen and (max-width: 768px) {
+  .highlight-content, #ivd .highlight-content { grid-template-columns: 1fr; padding: 2rem; }
+  /* .ivd-logos { grid-template-columns: 1fr; } */
+}
+
+/* --------------------------------------------------
    Footer
 -------------------------------------------------- */
 footer { background-color: var(--c-primary); padding: 4rem 0; }
