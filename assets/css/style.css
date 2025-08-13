@@ -84,6 +84,16 @@ img {
   height: auto;
 }
 
+/* Utility: visually hidden but accessible */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
 /* --------------------------------------------------
    Typography
 -------------------------------------------------- */
@@ -541,6 +551,9 @@ header.hero .hero-sub { margin-top: .5rem; margin-bottom: 1.5rem; font-size: 1re
 .highlight-badge img { max-height: 200px; object-fit: contain; }
 .highlight-text { text-align: center; }
 .highlight-text .heading { font-weight: 800; text-transform: uppercase; }
+
+/* Keep highlight headings visually like section titles */
+.highlight-box h3 { font-weight: 500; font-size: 2rem; margin-top: 2.5vh !important; margin-bottom: 4vh !important; }
 
 /* IVD logos grid */
 #ivd .highlight-content {
