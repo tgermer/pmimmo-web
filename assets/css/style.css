@@ -23,6 +23,9 @@
    Root variables & theme
 -------------------------------------------------- */
 :root {
+  --header-height: 90px;
+  --header-height-mobile: 64px;
+
   /* Primary via parts */
   --c-primary-h: 84;
   --c-primary-s: 59%;
@@ -49,6 +52,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   transition: background-color 0.3s ease, color 0.3s ease;
   background-color: var(--c-primary);
 }
@@ -154,6 +158,23 @@ li::marker { color: var(--c-primary) }
 a { color: var(--c-text); text-decoration: none; }
 a:hover { background-color: var(--c-primary); text-decoration: none; }
 
+/* Accessible focus ring */
+:focus-visible { outline: 3px solid var(--c-primary-dark); outline-offset: 3px; }
+button:focus-visible, a:focus-visible { border-radius: 4px; }
+
+/* Anchor offset so sticky nav doesn't cover headings */
+main > section[id],
+main > aside[id],
+main h2[id],
+main h3[id] { scroll-margin-top: var(--header-height); }
+
+@media (max-width: 900px) {
+  main > section[id],
+  main > aside[id],
+  main h2[id],
+  main h3[id] { scroll-margin-top: var(--header-height-mobile); }
+}
+
 /* --------------------------------------------------
    Layout helpers
 -------------------------------------------------- */
@@ -229,41 +250,27 @@ nav a {
   padding-bottom: .3rem;
 }
 nav a:hover { border-bottom: 3px solid var(--c-primary); background-color: inherit; }
+
+/* Active nav link */
+nav a[aria-current="page"] {
+  border-bottom: 3px solid var(--c-primary);
+  font-weight: 500;
+}
 nav .logo img { height: 70px; max-height: 70px; padding: .5rem 0; display: block; }
 nav .logo a { border: none; }
 
-/* Responsive hamburger navigation */
-.nav-toggle { display: none; }
+/* Button-based hamburger */
+.nav-toggle-button { display: none; position: absolute; top: 1.2rem; right: 1rem; width: 34px; height: 24px; cursor: pointer; background: transparent; border: none; }
+.nav-toggle-button .bars,
+.nav-toggle-button .bars::before,
+.nav-toggle-button .bars::after { content: ""; display: block; height: 3px; width: 100%; background: var(--c-primary-dark); border-radius: 3px; transition: transform .3s ease, opacity .3s ease; }
+.nav-toggle-button .bars { position: relative; }
+.nav-toggle-button .bars::before { position: absolute; top: -8px; }
+.nav-toggle-button .bars::after  { position: absolute; top: 8px; }
 
-.nav-toggle-label {
-  display: none;
-  position: absolute;
-  top: 1.5rem;
-  right: 1rem;
-  width: 30px;
-  height: 16px;
-  cursor: pointer;
-  z-index: 1100;
-}
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-  content: "";
-  display: block;
-  background: var(--c-primary-dark);
-  height: 3px;
-  width: 100%;
-  border-radius: 3px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-.nav-toggle-label span::before { transform: translateY(-10px); }
-.nav-toggle-label span::after  { transform: translateY(7px); }
-
-.nav-toggle:checked + .nav-toggle-label span { background: transparent; }
-.nav-toggle:checked + .nav-toggle-label span::before { transform: rotate(45deg) translate(-0.2rem, 0.35rem); }
-.nav-toggle:checked + .nav-toggle-label span::after  { transform: rotate(-45deg) translate(-0.2rem, -0.35rem); }
-
-/* menu container toggled on mobile set in media query */
+.nav-toggle-button[aria-expanded="true"] .bars { background: transparent; }
+.nav-toggle-button[aria-expanded="true"] .bars::before { transform: rotate(45deg) translate(5px, 5px); }
+.nav-toggle-button[aria-expanded="true"] .bars::after  { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* --------------------------------------------------
    Header / Hero
@@ -664,9 +671,10 @@ html[data-theme="dark"] #toggle-dark i.fa-sun { display: inline; }
   nav .logo img { height: 50px; max-height: 50px; padding: .2rem 0; }
   #leistungen > div > div { padding: 1.5rem 1rem; }
 
-  .nav-toggle-label { display: block; }
+  .nav-toggle-button { display: block; }
+  .nav-menu { display: none; }
+  .nav-menu.open { display: flex; }
   .nav-menu {
-    display: none;
     flex-direction: column;
     position: absolute;
     top: 4rem;
@@ -677,7 +685,6 @@ html[data-theme="dark"] #toggle-dark i.fa-sun { display: inline; }
     border-radius: 10px;
   }
   .nav-menu a { display: block; padding: 0.5rem 1rem; border-bottom: 1px solid var(--c-background-gray); }
-  .nav-toggle:checked ~ .container .nav-menu { display: flex; }
 }
 
 @media screen and (max-width: 768px) {

@@ -74,13 +74,15 @@
             </div>
         </header>
         <nav>
-            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-            <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+            <button id="nav-toggle-btn" class="nav-toggle-button" aria-label="Menü öffnen" aria-controls="primary-menu" aria-expanded="false" type="button">
+                <span class="bars"></span>
+            </button>
             <div class="container">
-                <div class="nav nav-menu">
+                <div id="primary-menu" class="nav nav-menu">
                     <a href="#neuer">Rüdiger Neuer</a>
                     <a href="#team">Team</a>
                     <a href="#leistungen">Leistungen</a>
+                    <a href="#faq">FAQ</a>
                     <a href="#immobilienangebote">Immobilienangebote</a>
                     <a href="#nachhaltigkeit">Umweltschutz</a>
                 </div>
@@ -298,7 +300,7 @@
                 </div>
             </section>
             <section id="mitglied" class="container">
-                <h3 class="text-center mb-m">Wir sind Miglied bei</h3>
+                <h3 class="text-center mb-m">Wir sind Mitglied bei</h3>
                 <div>
                     <img src="./assets/img/mitgliedImIvd.png" alt="Mitglied im ivd" />
                     <img src="./assets/img/immoscout24SilberPartnerSeit2025.png" alt="ImmoScout24 Silber Partner seit 2025" />
@@ -328,6 +330,7 @@
                     <div><a href="#neuer">Rüdiger Neuer</a></div>
                     <div><a href="#team">Team</a></div>
                     <div><a href="#leistungen">Leistungen</a></div>
+                    <div><a href="#faq">FAQ</a></div>
                     <div><a href="#immobilienangebote">Immobilienangebote</a></div>
                     <div><a href="#nachhaltigkeit">Umweltschutz</a></div>
                     <div><a href="#">Impressum</a></div>
@@ -403,6 +406,67 @@
                     }
                 ]
             }
+        </script>
+        <script>
+            (function () {
+                const btn = document.getElementById("nav-toggle-btn");
+                const menu = document.getElementById("primary-menu");
+                if (!btn || !menu) return;
+
+                function setExpanded(expanded) {
+                    btn.setAttribute("aria-expanded", String(expanded));
+                    if (expanded) {
+                        menu.classList.add("open");
+                    } else {
+                        menu.classList.remove("open");
+                    }
+                }
+
+                btn.addEventListener("click", () => {
+                    const isOpen = btn.getAttribute("aria-expanded") === "true";
+                    setExpanded(!isOpen);
+                });
+
+                // Close on ESC
+                document.addEventListener("keydown", (e) => {
+                    if (e.key === "Escape") setExpanded(false);
+                });
+
+                // Manage aria-current on click
+                const links = menu.querySelectorAll('a[href^="#"]');
+                function setCurrent(link) {
+                    links.forEach((a) => a.removeAttribute("aria-current"));
+                    if (link) link.setAttribute("aria-current", "page");
+                }
+                links.forEach((a) => {
+                    a.addEventListener("click", () => {
+                        setCurrent(a);
+                        setExpanded(false);
+                    });
+                });
+
+                // Optionally set current based on current hash at load
+                if (location.hash) {
+                    const active = Array.from(links).find((a) => a.getAttribute("href") === location.hash);
+                    if (active) setCurrent(active);
+                }
+
+                // Scroll-Spy: update aria-current based on scroll position
+                const sections = Array.from(document.querySelectorAll("main section[id]"));
+                window.addEventListener("scroll", () => {
+                    let currentId = null;
+                    const scrollY = window.scrollY + 100; // offset for header height
+                    sections.forEach((section) => {
+                        if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
+                            currentId = `#${section.id}`;
+                        }
+                    });
+                    if (currentId) {
+                        const activeLink = Array.from(links).find((a) => a.getAttribute("href") === currentId);
+                        setCurrent(activeLink);
+                    }
+                });
+            })();
         </script>
     </body>
 </html>
