@@ -10,24 +10,7 @@
         <link rel="canonical" href="https://www.projektmimmobilien.de/impressum.html" />
     </head>
     <body>
-        <nav aria-label="Hauptnavigation">
-            <button id="nav-toggle-btn" class="nav-toggle-button" aria-label="Menü öffnen" aria-controls="primary-menu" aria-expanded="false" type="button">
-                <span class="bars"></span>
-            </button>
-            <div class="container">
-                <div id="primary-menu" class="nav nav-menu">
-                    <a href="index.html#neuer">Rüdiger Neuer</a>
-                    <a href="index.html#team">Team</a>
-                    <a href="index.html#leistungen">Leistungen</a>
-                    <a href="index.html#faq">FAQ</a>
-                    <a href="index.html#immobilienangebote">Immobilienangebote</a>
-                    <a href="index.html#nachhaltigkeit">Umweltschutz</a>
-                </div>
-                <div class="logo">
-                    <a href="index.html"><img src="./assets/img/logo.png" alt="Projekt M Immobilien – Logo" /></a>
-                </div>
-            </div>
-        </nav>
+        <div id="nav-placeholder"></div>
 
         <main class="container">
             <h1>Impressum</h1>
@@ -120,56 +103,7 @@
 
             <p>Haftungsansprüche materieller oder ideeller Art, die durch die Nutzung der Homepage und der darin angegebenen Informationen entstehen, sind&nbsp;grundsätzlich ausgeschlossen.</p>
         </main>
-
-        <footer>
-            <div class="container spalten">
-                <div>
-                    <p><small>&copy; 2025 Projekt M Immobilien GmbH</small></p>
-                </div>
-                <div class="nav">
-                    <div><a href="index.html#neuer">Rüdiger Neuer</a></div>
-                    <div><a href="index.html#team">Team</a></div>
-                    <div><a href="index.html#leistungen">Leistungen</a></div>
-                    <div><a href="index.html#faq">FAQ</a></div>
-                    <div><a href="index.html#immobilienangebote">Immobilienangebote</a></div>
-                    <div><a href="index.html#nachhaltigkeit">Umweltschutz</a></div>
-                    <div><a href="impressum.html" aria-current="page">Impressum</a></div>
-                    <div><a href="datenschutz.html">Datenschutz</a></div>
-                </div>
-                <div>
-                    <address>
-                        <p>Projekt M Immobilien GmbH</p>
-                        <p>Krumbacherstraße 5<br />80798 München</p>
-                    </address>
-                </div>
-                <div>
-                    <p>Telefon <a href="tel:+498928806768">089 28806768</a><br />FAX 089 28806757</p>
-                    <p>E-Mail <a href="mailto:info@pmimmo.de">info@pmimmo.de</a></p>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Re-use the small JS from index for the mobile menu & aria-current  -->
-        <script>
-            (function () {
-                const btn = document.getElementById("nav-toggle-btn");
-                const menu = document.getElementById("primary-menu");
-                if (!btn || !menu) return;
-                const setExpanded = (x) => {
-                    btn.setAttribute("aria-expanded", String(x));
-                    menu.classList.toggle("open", x);
-                };
-                btn.addEventListener("click", () => setExpanded(btn.getAttribute("aria-expanded") !== "true"));
-                document.addEventListener("keydown", (e) => {
-                    if (e.key === "Escape") setExpanded(false);
-                });
-                const links = menu.querySelectorAll("a[href]");
-                const setCurrent = (a) => {
-                    links.forEach((x) => x.removeAttribute("aria-current"));
-                    a && a.setAttribute("aria-current", "page");
-                };
-                setCurrent(menu.querySelector('a[href$="impressum.html"]'));
-            })();
-        </script>
+        <div id="footer-placeholder"></div>
+        <script src="./assets/js/scripts.js" defer></script>
     </body>
 </html>

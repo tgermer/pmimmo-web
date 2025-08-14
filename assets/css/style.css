@@ -214,6 +214,11 @@ main h3[id] { scroll-margin-top: var(--header-height); }
 /* --------------------------------------------------
    Navigation
 -------------------------------------------------- */
+#nav-placeholder {
+  position: sticky;
+  top: 0;
+}
+
 nav {
   z-index: 1000;
   display: flex;

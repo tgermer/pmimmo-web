@@ -73,26 +73,7 @@
                 <a href="#leistungen" class="button cta">Jetzt beraten lassen</a> -->
             </div>
         </header>
-        <nav>
-            <button id="nav-toggle-btn" class="nav-toggle-button" aria-label="Menü öffnen" aria-controls="primary-menu" aria-expanded="false" type="button">
-                <span class="bars"></span>
-            </button>
-            <div class="container">
-                <div id="primary-menu" class="nav nav-menu">
-                    <a href="#neuer">Rüdiger Neuer</a>
-                    <a href="#team">Team</a>
-                    <a href="#leistungen">Leistungen</a>
-                    <a href="#faq">FAQ</a>
-                    <a href="#immobilienangebote">Immobilienangebote</a>
-                    <a href="#nachhaltigkeit">Umweltschutz</a>
-                </div>
-                <div class="logo">
-                    <a href="#">
-                        <img src="./assets/img/logo.png" alt="Logo" />
-                    </a>
-                </div>
-            </div>
-        </nav>
+        <div id="nav-placeholder"></div>
         <main>
             <aside id="dekra-d1" class="highlight-box" aria-labelledby="dekra-heading">
                 <div class="container">
@@ -332,39 +313,7 @@
                 </div>
             </section>
         </main>
-        <footer>
-            <div class="container">
-                <img src="./assets/img/logo.png" alt="Logo" />
-            </div>
-            <div class="container spalten">
-                <div>
-                    <p><small>&copy; 2025 Projekt M Immobilien GmbH</small></p>
-                </div>
-                <div class="nav">
-                    <div><a href="#neuer">Rüdiger Neuer</a></div>
-                    <div><a href="#team">Team</a></div>
-                    <div><a href="#leistungen">Leistungen</a></div>
-                    <div><a href="#faq">FAQ</a></div>
-                    <div><a href="#immobilienangebote">Immobilienangebote</a></div>
-                    <div><a href="#nachhaltigkeit">Umweltschutz</a></div>
-                    <div><a href="impressum.html">Impressum</a></div>
-                    <div><a href="datenschutz.html" aria-current="page">Datenschutz</a></div>
-                </div>
-                <div>
-                    <address>
-                        <p>Projekt M Immobilien GmbH</p>
-                        <p>Krumbacherstraße 5<br />80798 München</p>
-                    </address>
-                </div>
-                <div>
-                    <p>
-                        Telefon <a href="tel:+498928806768">089 28806768</a><br />
-                        FAX 089 28806757
-                    </p>
-                    <p>E-Mail <a href="mailto:info@pmimmo.de">info@pmimmo.de</a></p>
-                </div>
-            </div>
-        </footer>
+        <div id="footer-placeholder"></div>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -421,66 +370,6 @@
                 ]
             }
         </script>
-        <script>
-            (function () {
-                const btn = document.getElementById("nav-toggle-btn");
-                const menu = document.getElementById("primary-menu");
-                if (!btn || !menu) return;
-
-                function setExpanded(expanded) {
-                    btn.setAttribute("aria-expanded", String(expanded));
-                    if (expanded) {
-                        menu.classList.add("open");
-                    } else {
-                        menu.classList.remove("open");
-                    }
-                }
-
-                btn.addEventListener("click", () => {
-                    const isOpen = btn.getAttribute("aria-expanded") === "true";
-                    setExpanded(!isOpen);
-                });
-
-                // Close on ESC
-                document.addEventListener("keydown", (e) => {
-                    if (e.key === "Escape") setExpanded(false);
-                });
-
-                // Manage aria-current on click
-                const links = menu.querySelectorAll('a[href^="#"]');
-                function setCurrent(link) {
-                    links.forEach((a) => a.removeAttribute("aria-current"));
-                    if (link) link.setAttribute("aria-current", "page");
-                }
-                links.forEach((a) => {
-                    a.addEventListener("click", () => {
-                        setCurrent(a);
-                        setExpanded(false);
-                    });
-                });
-
-                // Optionally set current based on current hash at load
-                if (location.hash) {
-                    const active = Array.from(links).find((a) => a.getAttribute("href") === location.hash);
-                    if (active) setCurrent(active);
-                }
-
-                // Scroll-Spy: update aria-current based on scroll position
-                const sections = Array.from(document.querySelectorAll("main section[id]"));
-                window.addEventListener("scroll", () => {
-                    let currentId = null;
-                    const scrollY = window.scrollY + 100; // offset for header height
-                    sections.forEach((section) => {
-                        if (scrollY >= section.offsetTop && scrollY < section.offsetTop + section.offsetHeight) {
-                            currentId = `#${section.id}`;
-                        }
-                    });
-                    if (currentId) {
-                        const activeLink = Array.from(links).find((a) => a.getAttribute("href") === currentId);
-                        setCurrent(activeLink);
-                    }
-                });
-            })();
-        </script>
+        <script src="./assets/js/scripts.js" defer></script>
     </body>
 </html>
