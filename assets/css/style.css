@@ -509,7 +509,34 @@ header.hero .hero-sub { margin-top: .5rem; margin-bottom: 1.5rem; font-size: 1re
 /* --------------------------------------------------
    Weitere Sektionen
 -------------------------------------------------- */
-#pmimmo { background-color: var(--c-background-gray); padding-top: 2rem; padding-bottom: 4rem; }
+#pmimmo { 
+  background-color: var(--c-background-gray);
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Logo-Wasserzeichen in #pmimmo: unten an der Section, rechts auf Containerkante */
+#pmimmo, footer { position: relative; }
+#pmimmo, footer { 
+  --pmimmo-logo-width: clamp(300px, 22vw, 680px); 
+  --pmimmo-logo-opacity: 0.08; 
+}
+#pmimmo::after, footer:after {
+  content: "";
+  position: absolute;
+  bottom: 0; /* ganz unten am grauen Bereich */
+  /* rechts bündig zur Containerkante: 1rem Innenabstand + seitlicher Rand bei >1200px */
+  right: max(1rem, calc((100vw - 1200px) / 2 + 1rem));
+  width: var(--pmimmo-logo-width);
+  aspect-ratio: 166 / 87; /* an dein Logo anpassen */
+  background-image: url("../img/logo-boegen.png"); /* Pfad bei Bedarf anpassen */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right bottom;
+  filter: grayscale(1) brightness(0); /* schwarz */
+  opacity: var(--pmimmo-logo-opacity);
+  pointer-events: none;
+}
 
 #immobilienangebote { background-color: var(--c-background-primary-opacity); padding-top: 4rem; padding-bottom: 4rem; }
 
@@ -683,6 +710,10 @@ html[data-theme="dark"] #toggle-dark i.fa-sun { display: inline; }
   footer .spalten { grid-template-columns: repeat(2, 1fr); }
   .faq {
   grid-template-columns: 1fr 1fr;
+  }
+  footer::after {
+    display: none;
+  }
 }
 
 @media (max-width: 900px) {
@@ -714,6 +745,10 @@ html[data-theme="dark"] #toggle-dark i.fa-sun { display: inline; }
   #team .person { flex-direction: column !important; align-items: center; gap: 1rem; }
   #team .person-info, #team .person .portrait { width: 100%; max-width: none; }
   #team .person .portrait { order: -1; margin-bottom: 0.5rem; }
+
+  #pmimmo { --pmimmo-logo-width: clamp(300px, 35vw, 600px); }
+  /* bei kleinen Viewports bündig 1rem vom Rand */
+  #pmimmo::after { right: 1rem; }
 
   .faq {
   grid-template-columns: 1fr;
