@@ -118,7 +118,7 @@ h3 {
   margin-bottom: 2.5vh;
 }
 
-h4 {
+h4, #faq h3 {
   font-weight: 300;
   font-size: 1.5rem;
   margin-bottom: 2vh;
@@ -507,7 +507,7 @@ header.hero .hero-sub { margin-top: .5rem; margin-bottom: 1.5rem; font-size: 1re
   align-content: stretch;
 }
 
-.faq h4 {
+.faq h3 {
   margin-top: 0;
 }
 
